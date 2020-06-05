@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import "bootstrap/dist/css/bootstrap.min.css";
+import {BrowserRouter as Router,Route} from "react-router-dom"
 import './App.css';
+import { Exerciselist } from './components/exerciselist';
+import { Createuser } from './components/createuser';
+import { Createexercise } from './components/createexercise';
+import { Editexercise } from './components/editexercise';
+import { Navbar } from './components/navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className="container">
+      <Navbar/>
+      <Route exact path="/" component={Exerciselist}/>
+      <Route path="/adduser" component={Createuser}/>
+      <Route path="/addexer" component={Createexercise}/>
+      <Route path="/editexer/:id" component={Editexercise}/>
+      {/* in edit link an id will be provided to edit that particular exercise */}
     </div>
+    </Router>
   );
 }
 

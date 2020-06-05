@@ -4,18 +4,22 @@ const useroperations={
 var promise=usercollection.create(record);
 return promise;
     },
-    search(record){
-        var promise=new Promise((resolve,reject)=>{
-            usercollection.findOne(record,(data,err)=>{
-                if(err){
-                    reject(err)
-                }
-                else{
-                    resolve(data);
-                }
-            })
-        })
-    return promise;
+    update(record){
+       var pr= usercollection.update(record);
+    return pr;
+    },
+    find(){
+        var pr=usercollection.find();
+        return pr;
+    },
+    findbyid(id){
+        var pr=usercollection.findById(id);
+        return pr;
+    },
+    delete(id){
+        var pr=usercollection.findByIdAndDelete(id)
+        return pr;
     }
+    
 }
 module.exports=useroperations
